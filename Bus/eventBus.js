@@ -34,14 +34,3 @@ class eventBus {
   }
 }
 let events = new eventBus();
-
-
-
-
-// even.$on('hjh', (...agrs) => {
-//   console.log('hjh', agrs);
-// })
-
-// setTimeout(() => {
-//   even.$emit('hjh', 1, 2, 3);
-// }, 3000)
