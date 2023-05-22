@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./eventBus.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn_on">点击发布</button>
+  <button id="btn_emit">点击订阅</button>
+  <button id="btn_emit1">点击订阅11</button>
+
+  <script>
+    let btn_on = document.getElementById("btn_on");
+    let btn_emit = document.getElementById("btn_emit");
+    let btn_emit1 = document.getElementById("btn_emit1");
+    let curIndex = 0;
+    btn_on.addEventListener('click', () => {
+      events.$on('btn', (...agrs) => {
+        console.log(`btn${curIndex++}`, ...agrs);
+      })
+      events.$once('btn123131', (...agrs) => {
+        console.log(`btn123131${curIndex++}`, ...agrs);
+      })
+    })
+    btn_emit.addEventListener('click', () => {
+      events.$emit('btn', '1', '2')
+    })
+    btn_emit1.addEventListener('click', () => {
+      events.$emit('btn123131', '黄佳豪')
+    })
+  </script>
+</body>
+</html>
