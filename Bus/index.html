@@ -4,15 +4,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
   <script src="./eventBus.js"></script>
   <title>Document</title>
 </head>
 <body>
-  <button id="btn_on">点击发布</button>
-  <button id="btn_emit">点击订阅</button>
-  <button id="btn_emit1">点击订阅11</button>
+  <div class="app_vue">
+    <button id="btn_on">点击发布</button>
+    <button id="btn_emit">点击订阅</button>
+    <button id="btn_emit1">点击订阅11</button>
+  </div>
 
   <script>
+    let vm = new Vue({
+      el: '.app_vue',
+      provide: {
+        foo: 'bar'
+      },
+      props: {
+        names: {
+          type: String,
+          default: ''
+        }
+      },
+      data() {
+        return {
+          name: 'hjh'
+        }
+      },
+      mounted() {
+        console.log('12233s')
+      },
+      methods: {
+        test() {
+          console.log(this.name);
+        },
+      }
+    })
     let btn_on = document.getElementById("btn_on");
     let btn_emit = document.getElementById("btn_emit");
     let btn_emit1 = document.getElementById("btn_emit1");
